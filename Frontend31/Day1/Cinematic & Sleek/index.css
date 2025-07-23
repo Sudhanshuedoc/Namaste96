@@ -1,0 +1,78 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(189, 231, 91);
+  align-items: center;
+}
+
+ul li a {
+  text-decoration: none;
+  font-size: 20px;
+}
+ul li {
+  list-style-type: none;
+}
+ul {
+  display: flex;
+  width: 25%;
+  /* border: 1px solid blue; */
+  justify-content: space-around;
+}
+nav > div {
+  font-size: 40px;
+}
+body {
+  font-family: "Bitcount Prop Single", system-ui;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin: 0px;
+  background-color: rgb(223, 236, 191);
+}
+#search {
+  text-align: center;
+  padding-top: 20px;
+}
+#search input {
+  width: 60%;
+  height: 2vh;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  font-family: "Bitcount Prop Single", system-ui;
+  font-size: 20px;
+}
+#search input:focus {
+  outline: none; /* Optional: removes default blue/black outline */
+}
+#search button {
+  border: none;
+  padding: 13px;
+  width: 150px;
+  position: relative;
+  font-size: 0.9rem;
+  right: 152px;
+  border-radius: 0px 20px 20px 0px;
+  cursor: pointer;
+  background-color: rgb(192, 231, 83);
+}
+#display {
+  width: 80%;
+  margin: 20px auto;
+  /* border: 1px solid red; */
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  text-align: center;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  box-sizing: border-box;
+  gap: 20px;
+  padding: 20px;
+}
+
+#display div {
+  /* border: 1px solid blue; */
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+}
