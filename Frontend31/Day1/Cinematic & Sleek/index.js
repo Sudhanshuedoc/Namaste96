@@ -32,6 +32,12 @@ function displayData(arr) {
       year.innerText = ele.Year;
       div.append(poster, title, year);
       display.append(div);
+      div.addEventListener("click", function (e) {
+        console.log(ele.imdbID);
+        console.log("hello world");
+        location.href = "moviepage.html";
+        localStorage.setItem("id", JSON.stringify(ele.imdbID));
+      });
     });
   }
 }

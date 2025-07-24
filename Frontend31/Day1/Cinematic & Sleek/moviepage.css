@@ -1,0 +1,22 @@
+body {
+  font-family: "Bitcount Prop Single", system-ui;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin: 0px;
+  background-color: rgb(223, 236, 191);
+}
+#display {
+  width: 30%;
+  margin: 20px auto;
+  /* border: 1px solid red; */
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  text-align: left;
+  border-radius: 20px;
+  box-sizing: border-box;
+  gap: 20px;
+  padding: 20px;
+}
+#display > div > img {
+  display: block;
+  margin: auto;
+}
