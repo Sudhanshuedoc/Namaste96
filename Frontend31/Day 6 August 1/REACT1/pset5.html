@@ -1,0 +1,41 @@
+<!-- Task : Create a React element using JSX which has the following 
+
+- It should be wrapped using React Fragment
+- Inside this fragment; There should be
+    - a `p` element with text “React is a javascript library”
+    - a `div` element which should have class `“main”` . This `div` should contain the following
+        - A `p` element which says “click the below button to alert `Hello`
+        - A button with text “Alert Hello” . Clicking on which an alert pops up with the same message -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      let names = "main";
+      let message = "hello button got clicked";
+      function handleClick() {
+        alert(message);
+      }
+      let element = (
+        <>
+          <p>React is a Javacript Library</p>
+          <div className={names}>
+            <p>Click the Button Below to alert Hello</p>
+            <button onClick={handleClick}>Alert Hello</button>
+          </div>
+        </>
+      );
+      let root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(element);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!-- <div className="wrapper">
+  <p id="quote">Carpe Diem</p>
+  <p>Seize the day</p>
+  <div>
+    <p>
+      This is <span>Sparta</span>
+    </p>
+  </div>
+</div>;
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        border: 1px solid red;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script>
+      let root = ReactDOM.createRoot(document.getElementById("root"));
+      let element = React.createElement("div", { className: "wrapper" }, [
+        React.createElement("p", { id: "quote" }, "Carpediem"),
+        React.createElement("p", null, "Seize The Day"),
+        React.createElement("div", null, [
+          React.createElement("p", null, [
+            "This is",
+            React.createElement("span", {}, "Sparta"),
+          ]),
+        ]),
+      ]);
+      root.render(element);
+    </script>
+  </body>
+</html>
