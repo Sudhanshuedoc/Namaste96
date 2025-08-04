@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boilerplate Code</title>
+    <style>
+      table,
+      th,
+      td {
+        margin: 20px;
+        border: 1px solid red;
+        border-collapse: collapse;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.development.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+  ></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function TodoApp() {
+      return (
+        <>
+          <AddTodo />
+        </>
+      );
+    }
+    function AddTodo() {
+      let [input, setInput] = React.useState({ task: "", isCompleted: false });
+      let [task, setTask] = React.useState([]);
+      function handleChange(e) {
+        setInput({ task: e.target.value, isCompleted: false });
+        console.log(e.target.value);
+      }
+      function handleClick() {
+        setTask([...task, input]);
+        setInput({ task: "", isCompleted: false });
+      }
+      function handleDelete(obj) {
+        let newarr = task.filter((ele) => {
+          return ele.task !== obj.task;
+        });
+        setTask([...newarr]);
+      }
+      function toggle(obj) {
+        let newarr = task.map((ele) => {
+          if (obj.task === ele.task) {
+            return { ...ele, isCompleted: !ele.isCompleted };
+          } else {
+            return ele;
+          }
+        });
+        setTask(newarr);
+      }
+
+      return (
+        <>
+          <input type="text" onChange={handleChange} />
+          <button onClick={handleClick}>ADD NEW TASK</button>
+          <table>
+            <tr>
+              <th>task</th>
+              <th>isCompleted</th>
+              <th>Delete</th>
+              <th>Toggle Completed </th>
+            </tr>
+            {task.map((ele) => {
+              return (
+                <tr key={ele.id}>
+                  <td>{ele.task}</td>
+                  <td>{ele.isCompleted ? "Completed" : "Not Completed"}</td>
+                  <td
+                    onClick={() => {
+                      handleDelete(ele);
+                    }}
+                  >
+                    Delete❌
+                  </td>
+                  <td
+                    onClick={() => {
+                      toggle(ele);
+                    }}
+                  >
+                    {ele.isCompleted ? "completed ✔" : "Not Completed❌"}
+                  </td>
+                </tr>
+              );
+            })}
+          </table>
+        </>
+      );
+    }
+    function App() {
+      return (
+        <>
+          <TodoApp />
+        </>
+      );
+    }
+    let root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</html>
+
+<!-- modification required 
+pass to children i mean break into component  
+-->

@@ -1,0 +1,52 @@
+<!-- 🔹 Q1. Boolean flag
+You have a variable isOnline = true.
+
+👉 Render "User is online" if isOnline is true, otherwise render "User is offline".
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.development.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+  ></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function User({ isactive }) {
+      return (
+        <>
+          <p
+            style={{
+              color: isactive ? "red" : "green",
+              backgroundColor: isactive ? "green" : "red",
+            }}
+          >
+            User is {isactive ? "active" : "inactive"}
+          </p>
+        </>
+      );
+    }
+    function App() {
+      return (
+        <>
+          <User isactive={true} />
+          <User isactive={false} />
+        </>
+      );
+    }
+    let root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</html>

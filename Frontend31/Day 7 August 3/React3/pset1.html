@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>State Management and useState</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script type="text/babel">
+      function Counter({ value, updater }) {
+        function handleCount() {
+          updater(value + 1);
+        }
+        return (
+          <div
+            style={{ border: "1px solid red", margin: "20px", padding: "20px" }}
+          >
+            <p>Count:{value}</p>
+            <button onClick={handleCount}>Increase Count</button>
+          </div>
+        );
+      }
+      function App() {
+        let [counter, setCounter] = React.useState(0);
+        return (
+          <>
+            <Counter value={counter} updater={setCounter} />
+            <Counter value={counter} updater={setCounter} />
+          </>
+        );
+      }
+      const reactRoot = ReactDOM.createRoot(document.getElementById("root"));
+      reactRoot.render(<App />);
+    </script>
+  </body>
+</html>

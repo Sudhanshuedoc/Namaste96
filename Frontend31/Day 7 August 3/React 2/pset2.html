@@ -1,0 +1,74 @@
+<!-- Create a React Application :
+
+This application should have the following components.
+Navbar Component
+div with id navbar with 2 children elements
+child1 is a p element with text "navbar"
+child2 is another p element with text "links will be displayed here"
+Main Component
+Fragment wrapper
+it should have a p element with text "main content"
+Footer Component
+div with id footer
+p element with text Footer -->
+<!-- chidlren props practice -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.development.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+  ></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function Navbar() {
+      return (
+        <div
+          style={{
+            color: "red",
+            border: "1px solid blue",
+            backgroundColor: "lightgreen",
+          }}
+        >
+          <p>This is navbar</p>
+        </div>
+      );
+    }
+    function Header({ children }) {
+      return (
+        <div
+          style={{
+            border: "1px solid red",
+            padding: "10px",
+            backgroundColor: "lightyellow",
+          }}
+        >
+          <p>This header </p>
+          {children}
+        </div>
+      );
+    }
+    function App() {
+      return (
+        <>
+          <Header>
+            <Navbar />
+          </Header>
+        </>
+      );
+    }
+    let root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</html>
